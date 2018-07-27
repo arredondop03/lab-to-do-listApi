@@ -1,0 +1,30 @@
+
+
+
+
+<form (submit) = "updateThisTask()">
+  <h3>Edit "{{theActualTask.title}}"
+    </h3>
+
+  <input type="hidden" [(ngModel)]="theActualTask.id" [value]="theActualTask._id" name="id">
+
+  <label>Title</label>
+  <br><input [(ngModel)]="theActualTask.title" name="title" type="text">
+  <br>
+  <br>
+
+  <label>Description</label>
+  <br><textarea [(ngModel)]="theActualTask.description" name="description" type="text" [value]="theActualTask.description"></textarea>
+  <br>
+  <br>
+
+  <label>Completed?</label>
+  <br><select [(ngModel)]="theActualTask.doneyet" name="doneyet" [value]="theActualTask.doneyet">
+      <option value="true">true</option>
+      <option value="false">false</option>
+  </select>
+  <br>
+  <br>
+
+  <button>Update Task</button>
+</form>

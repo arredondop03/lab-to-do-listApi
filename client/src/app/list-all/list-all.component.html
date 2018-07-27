@@ -1,0 +1,10 @@
+<h1>Tasks</h1>
+
+<hr>
+<div *ngFor="let aTask of allTheTasks">
+   <h4>{{aTask.title}}</h4>
+   <p>Done Yet?: {{aTask.doneyet}}</p>
+   <a [routerLink]="['details', aTask._id]">View Task Details</a>
+
+   <hr>
+  </div>
