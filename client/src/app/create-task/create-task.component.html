@@ -1,3 +1,23 @@
-<p>
-  create-task works!
-</p>
+<form (submit) = "createThisTask()">
+    <h2>Create a New Task</h2>
+  
+    <label>Title</label>
+    <br><input [(ngModel)]="theNewTask.title" name="title" type="text">
+    <br>
+    <br>
+  
+    <label>Description</label>
+    <br><textarea [(ngModel)]="theNewTask.description" name="description" type="text"></textarea>
+    <br>
+    <br>
+  
+    <label>Completed?</label>
+    <br><select [(ngModel)]="theNewTask.doneyet" name="doneyet">
+        <option value="true">true</option>
+        <option value="false">false</option>
+    </select>
+    <br>
+    <br>
+  
+    <button>Create The Task</button>
+  </form>

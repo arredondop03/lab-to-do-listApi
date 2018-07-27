@@ -1,8 +1,6 @@
 <a [routerLink]="['']">Back to Task List</a>
 
 <h1>Info on {{theActualTask.title}}</h1>
-
-<h3>{{theActualTask.title}}</h3>
-<p>Info: {{theActualTask.description}}</p>
+<p>Description: {{theActualTask.description}}</p>
 <p>Done Yet?: {{theActualTask.doneyet}}</p>
 <a [routerLink]="['/edit',theActualTask._id]">Edit This Task</a>

@@ -15,6 +15,12 @@ getTasks() {
   .map((response) => response.json());
 }
 
+makeATask(theNewTask){
+  return this.myHttp.post('http://localhost:3000/api/tasks/create', theNewTask)
+  .map((response)=> response.json());
+}
+
+
 
 getJustOneTask(theIdOfTheTask){
   return this.myHttp.get(`http://localhost:3000/api/tasks/${theIdOfTheTask}`)
@@ -23,7 +29,7 @@ getJustOneTask(theIdOfTheTask){
 
 
 editATask(theIdOfTheTaskImUpdating, theUpdatedTaskObject){
-  return this.myHttp.patch(`http://localhost:3000/api/tasks/edit/${theIdOfTheTaskImUpdating}`, theUpdatedTaskObject)
+  return this.myHttp.post(`http://localhost:3000/api/tasks/edit/${theIdOfTheTaskImUpdating}`, theUpdatedTaskObject)
   .map((updateCompleted)=> updateCompleted.json());
 }
 

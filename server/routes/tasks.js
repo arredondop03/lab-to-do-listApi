@@ -56,7 +56,7 @@ router.get('/tasks/:id', (req, res, next) => {
 // On normal update, you do find by id and update on the back end.
 //when doing it with an API, on the server side it is findByIdandUpdate, but on the CLIENT/SERVICE
 //SIDE, YOU WILL DO A PATCH. This will rewrite it by preserving the object id
-router.patch('/tasks/edit/:id', (req, res, next)=>{
+router.post('/tasks/edit/:id', (req, res, next)=>{
   const theId = req.params.id
   const theUpdatedTasks = {
     title: req.body.title,
