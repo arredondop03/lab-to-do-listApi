@@ -34,6 +34,11 @@ editATask(theIdOfTheTaskImUpdating, theUpdatedTaskObject){
 }
 
 
+deleteATask(theIdOfTheTaskImDeleting){
+  return this.myHttp.delete(`http://localhost:3000/api/tasks/delete/${theIdOfTheTaskImDeleting}`)
+  .map((deleteCompleted)=> deleteCompleted.json());
+}
+
 
 
 
