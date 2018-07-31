@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-const cors         = require('cors');
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express      = require('express');
@@ -9,6 +8,15 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+
+const passport     = require('passport');
+const session      = require('express-session');
+const cors         = require('cors');
+
+
+const passportSetup = require('./config/passport');
+passportSetup(passport);
+
 
 
 mongoose.Promise = Promise;
@@ -45,7 +53,15 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+app.use(session({
+  secret: 'angular auth passport secret shh',
+  resave: true,
+  saveUninitialized: true,
+  cookie : { httpOnly: true, maxAge: 2419200000 }
+}));
 
+app.use(passport.initialize());
+app.use(passport.session());
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
@@ -58,5 +74,7 @@ app.use('/', index);
 const taskRoutes = require('./routes/tasks')
 app.use('/api', taskRoutes);
 
+const authRoutes = require('./routes/auth-routes')
+app.use('/api', authRoutes);
 
 module.exports = app;
