@@ -24,6 +24,7 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
 import { DeleteTaskComponent } from './delete-task/delete-task.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { TaskServiceService } from './services/task-service.service';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TaskServiceService } from './services/task-service.service';
     CreateTaskComponent,
     EditTaskComponent,
     DeleteTaskComponent,
-    TaskDetailsComponent
+    TaskDetailsComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

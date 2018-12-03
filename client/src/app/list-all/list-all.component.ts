@@ -10,16 +10,19 @@ export class ListAllComponent implements OnInit {
 
   allTheTasks:Array<any>;
 
+  theNewTask:any = {}
+
   constructor(private taskRabbit:TaskServiceService) { }
 
   getAllTheTasks(){
     this.taskRabbit.getTasks()
     .subscribe((res)=>{
-      this.allTheTasks = res.reverse();
+      this.allTheTasks = res;
     })
-
-
   }
+
+
+ 
 
 
   ngOnInit() {
